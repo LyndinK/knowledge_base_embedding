@@ -1,0 +1,4 @@
+annoy==1.17.0
+matplotlib==3.3.2
+rdflib==5.0.0
+numpy==1.19.2

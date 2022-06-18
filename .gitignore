@@ -1,0 +1,6 @@
+/.idea
+/.git
+**/__pycache__
+dist/
+src/kb.egg-info
+src/kb/kb.egg-info/
