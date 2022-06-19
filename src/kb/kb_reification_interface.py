@@ -94,6 +94,12 @@ class KBReificationInterface:
 
     @staticmethod
     def _reify_with_metadata(graph: rdflib.Graph) -> rdflib.Graph:
+        """
+        A method to add info about embeddings, images and their physical storage
+        in the graph
+        :param graph: RDFLib graph object
+        :return: RDFLib graph object
+        """
 
         # add metadata about embeddings
         graph.add((Config.EMBEDDING, RDF.type, RDFS.Class))

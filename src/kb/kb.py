@@ -48,15 +48,24 @@ class KB(KBIO):
         return self._index.get_nns_by_item(entity_id, k_nearest)
 
     def select_similar_image(self, entity_id: int, k_nearest: int = 10):
-
+        """
+        A method to get the nearest neighbors to the given entity
+        :param entity_id: entity which we want to get neighbors for
+        :param k_nearest: number of neighbors
+        :return: None, prints images to cell output if using Jupyter
+        """
         similar_ids = self.select_similar(entity_id=entity_id, k_nearest=k_nearest)
-
         self._show_image(entity_id=entity_id, title=f"showing image with requested id `{entity_id}`")
-
         for enum, id_ in enumerate(similar_ids):
             self._show_image(entity_id=id_, title=f"showing neighbor photo. Rank: `{enum + 1}`, id: {id_}")
 
     def _show_image(self, entity_id: int, title: str):
+        """
+        A method to show a single image for a given entity
+        :param entity_id: entity to show image for
+        :param title: title to show above the image
+        :return: None, prints images to cell output if using Jupyter
+        """
         for s, p, o in self._graph.triples((None, self._meta_dict['ENTITY_PREDICATE'], Literal(entity_id))):
             entity = s
 
